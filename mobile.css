@@ -6,7 +6,6 @@ body {
   font-family: "Pacifico", cursive;
 }
 header {
-  /* background-color: brown; */
   margin: 0;
   padding-bottom: 2em;
   padding-top: 2em;
@@ -17,32 +16,26 @@ header {
   flex-direction: column;
   align-items: center;
 }
+.logo-titre img {
+  width: 8em;
+}
 h1 {
   font-size: xx-large;
   color: white;
   font-weight: normal;
 }
-
-.logo-titre img {
-  width: 8em;
-}
-
 .question {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   justify-content: space-around;
   background-color: #efea4d;
   border-radius: 3vw;
   margin-left: 5vw;
   margin-right: 5vw;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
-  padding-left: 1vw;
-  padding-right: 1vw;
   height: 50vh;
   margin-bottom: 1vh;
+  padding: 1vh;
 }
 
 h2 {
