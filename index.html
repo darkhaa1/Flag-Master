@@ -3,26 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="mobile.css" />
+    <link
+      rel="stylesheet"
+      href="tablet.css"
+      media="(min-width: 768px) and (max-width: 1024px)"
+    />
+    <link rel="stylesheet" href="desktop.css" media="(min-width: 1024px)" />
+
+    <link rel="stylesheet" href="desktop.css" />
+    <title>Flag Master</title>
   </head>
   <body>
     <header>
       <nav>
-        <section>
+        <section class="logo-titre">
           <img src="/images/logoWorld.png" alt="logoFlagMaster" />
           <h1>Flag Master</h1>
         </section>
       </nav>
     </header>
     <main>
-      <h2>Welcome to our Flag Master</h2>
-      <h2>Are you a Flag pro?</h2>
-      <button>Get started</button>
+      <section class="question">
+        <div id="welcome_text">
+          <h2>Welcome to our Flag Master</h2>
+          <h2>Are you a Flag pro?</h2>
+        </div>
+        <button id="start-button">Get started</button>
+      </section>
     </main>
     <footer>
-      <progress value="50" max="100"></progress>
-      <img src="/images/ampoule.png" alt="hint" />
-      <button>I give up!</button>
+      <section id="footer-box">
+        <div id="progress-container">
+          <div id="progress-bar"></div>
+        </div>
+        <div id="hint-giveup">
+          <div>
+            <img src="/images/ampoule.png" alt="hint" />
+          </div>
+          <div>
+            <button>I give up!</button>
+          </div>
+        </div>
+      </section>
     </footer>
   </body>
 </html>
