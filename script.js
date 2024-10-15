@@ -1,4 +1,4 @@
-document.getElementById("start-button").addEventListener("click", function () {
+document.getElementById("start-button").addEventListener("click", () => {
 	const mainSection = document.querySelector(".carte");
 	mainSection.innerHTML = "";
 
@@ -17,9 +17,11 @@ document.getElementById("start-button").addEventListener("click", function () {
 	nameInput.id = "player-name";
 	nameInput.placeholder = "Nadarkhily Wild";
 	mainSection.appendChild(nameInput);
+	nameInput.style.height = "4em";
+	nameInput.style.width = "20em";
 
 	const readyButton = document.createElement("button");
 	readyButton.textContent = "Ready !";
-	readyButton.id = "ready-button";
+	readyButton.id = "start-button";
 	mainSection.appendChild(readyButton);
 });
