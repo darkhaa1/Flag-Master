@@ -94,8 +94,8 @@ const questions = [
 	{
 		question: "Where does this flag fly?",
 		picture: "images/mn.png",
-		options: ["Barbados", "Jamaica", "Mangolia", "Saint Lucia"],
-		correct: "Mangolia",
+		options: ["Barbados", "Jamaica", "Mongolia", "Saint Lucia"],
+		correct: "Mongolia",
 	},
 	{
 		question: "Where does this flag fly?",
@@ -202,13 +202,39 @@ function checkAnswer(selectedOption, buttonElement) {
 function loadNextQuestion() {
 	currentQuestionIndex++;
 	if (currentQuestionIndex < questions.length) {
-		createQuestion(); // Charger la question suivante
+		createQuestion();
 	} else {
-		// Gérer la fin du quiz
-		alert("Quiz finished! Your score: " + score);
-
-		// mainSection.innerHTML = "";
-		// const scoreFinale = document.createElement("h2");
-		// scoreFinale.textContent = "Quiz finished! Your score: " + score;
+		displayScore();
 	}
 }
+
+function displayScore() {
+	const mainSection = document.querySelector(".carte");
+	mainSection.innerHTML = "";
+	const scoreMessage = document.createElement("h2");
+	scoreMessage.textContent = `Good job! Your score : ${score} out of 10`;
+	mainSection.appendChild(scoreMessage);
+
+	const restartButton = document.createElement("button");
+	restartButton.textContent = "Restart";
+	restartButton.id = "restart-button";
+
+	restartButton.style.paddingLeft = "1em";
+	restartButton.style.paddingRight = "1em";
+	restartButton.style.marginTop = "2vh";
+	restartButton.style.marginBottom = "1vh";
+	restartButton.style.borderRadius = "2vw";
+	restartButton.style.border = "none";
+	restartButton.style.backgroundColor = "#724def";
+	restartButton.style.fontSize = "xx-large";
+	restartButton.style.color = "white";
+	restartButton.style.fontFamily = "Pacifico, cursive";
+
+	restartButton.addEventListener("click", loadNextQuestion);
+	mainSection.appendChild(restartButton);
+}
+
+const giveUpButton = document.getElementById("giveup-button");
+giveUpButton.addEventListener("click", () => {
+	window.location.href = "index.html";
+});
