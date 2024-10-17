@@ -58,6 +58,26 @@ function displayGiveUpMessage() {
 	const message = document.createElement("h2");
 	message.textContent = "You're not a real Wilder!";
 	mainSection.appendChild(message);
+	restartButton = document.createElement("button");
+	restartButton.textContent = "Restart";
+	restartButton.id = "restart-button";
+	restartButton.style.paddingLeft = "1em";
+	restartButton.style.paddingRight = "1em";
+	restartButton.style.marginTop = "2vh";
+	restartButton.style.marginBottom = "1vh";
+	restartButton.style.borderRadius = "2vw";
+	restartButton.style.border = "none";
+	restartButton.style.backgroundColor = "#724def";
+	restartButton.style.fontSize = "xx-large";
+	restartButton.style.color = "white";
+	restartButton.style.fontFamily = "Pacifico, cursive";
+
+	restartButton.addEventListener("click", () => {
+		currentQuestionIndex = 0;
+		score = 0;
+		createQuestion();
+	});
+	mainSection.appendChild(restartButton);
 }
 
 const progressBar = document.getElementById("progress-bar");
@@ -186,6 +206,10 @@ function createQuestion() {
 
 	nextButton.addEventListener("click", loadNextQuestion);
 	mainSection.appendChild(nextButton);
+
+	document.querySelector("#hint-giveup img").addEventListener("click", () => {
+		alert("Ask the person next to you!");
+	});
 }
 
 function checkAnswer(selectedOption, buttonElement) {
@@ -226,12 +250,11 @@ function loadNextQuestion() {
 
 		const scoreFinal = document.createElement("h2");
 		scoreFinal.textContent = `Bravo ${playerName}! Quiz finished! Your score is ${score} out of 10`; // scoreFinal.textContent = "Quiz finished! Your score: " + score;
-
 		mainSection.appendChild(scoreFinal);
+
 		const restartButton = document.createElement("button");
 		restartButton.textContent = "Restart";
 		restartButton.id = "restart-button";
-
 		restartButton.style.paddingLeft = "1em";
 		restartButton.style.paddingRight = "1em";
 		restartButton.style.marginTop = "2vh";
