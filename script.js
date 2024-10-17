@@ -18,14 +18,11 @@ document.getElementById("start-button").addEventListener("click", () => {
 	nameInput.id = "player-name";
 	nameInput.placeholder = "Nadarkhily Wild";
 	mainSection.appendChild(nameInput);
-	// nameInput.style.height = "4em";
-	// nameInput.style.width = "20em";
 	nameInput.style.fontSize = "x-large";
 	nameInput.style.borderRadius = "1vw";
 	nameInput.style.border = "none";
 	nameInput.style.padding = "1em";
 	nameInput.style.width = "10em";
-	// nameInput.style.paddingRight = "1em";
 
 	const readyButton = document.createElement("button");
 	readyButton.textContent = "Ready !";
@@ -34,7 +31,6 @@ document.getElementById("start-button").addEventListener("click", () => {
 	readyButton.style.paddingRight = "1em";
 	readyButton.style.paddingTop = "2vw";
 	readyButton.style.paddingBottom = "2vw";
-
 	readyButton.style.borderRadius = "3vw";
 	readyButton.style.border = "none";
 	readyButton.style.backgroundColor = "#724def";
@@ -49,14 +45,31 @@ document.getElementById("start-button").addEventListener("click", () => {
 
 let currentQuestionIndex = 0;
 let score = 0;
+let playerName = "";
+
+document
+	.getElementById("give-up-button")
+	.addEventListener("click", displayGiveUpMessage);
+
+function displayGiveUpMessage() {
+	const mainSection = document.querySelector(".carte");
+	mainSection.innerHTML = "";
+
+	const message = document.createElement("h2");
+	message.textContent = "You're not a real Wilder!";
+	mainSection.appendChild(message);
+}
+
+const progressBar = document.getElementById("progress-bar");
 
 function startQuiz() {
-	const playerName = document.getElementById("player-name").value;
+	playerName = document.getElementById("player-name").value;
 	if (!playerName) {
 		alert("Enter your name before starting");
 		return;
 	}
 	document.querySelector(".carte").innerHTML = "";
+	progressBar.style.width = "4%";
 	createQuestion();
 }
 
@@ -94,8 +107,8 @@ const questions = [
 	{
 		question: "Where does this flag fly?",
 		picture: "images/mn.png",
-		options: ["Barbados", "Jamaica", "Mangolia", "Saint Lucia"],
-		correct: "Mangolia",
+		options: ["Barbados", "Jamaica", "Mongolia", "Saint Lucia"],
+		correct: "Mongolia",
 	},
 	{
 		question: "Where does this flag fly?",
@@ -141,7 +154,7 @@ function createQuestion() {
 	question.textContent = currentQuestion.question;
 	mainSection.appendChild(question);
 
-	currentQuestion.options.forEach((option) => {
+	for (const option of currentQuestion.options) {
 		const optionButton = document.createElement("button");
 		optionButton.textContent = option;
 		optionButton.classList.add("option-button");
@@ -153,7 +166,8 @@ function createQuestion() {
 			checkAnswer(option, event.target),
 		);
 		mainSection.appendChild(optionButton);
-	});
+	}
+
 	const nextButton = document.createElement("button");
 	nextButton.textContent = "Next";
 	nextButton.id = "next-button";
@@ -178,9 +192,9 @@ function checkAnswer(selectedOption, buttonElement) {
 	const currentQuestion = questions[currentQuestionIndex];
 	const nextButton = document.querySelector("#next-button");
 
-	document.querySelectorAll(".option-button").forEach((button) => {
+	for (const button of document.querySelectorAll(".option-button")) {
 		button.disabled = true;
-	});
+	}
 
 	if (selectedOption === currentQuestion.correct) {
 		buttonElement.style.backgroundColor = "green";
@@ -190,25 +204,29 @@ function checkAnswer(selectedOption, buttonElement) {
 		buttonElement.style.backgroundColor = "red";
 		buttonElement.style.color = "white";
 
-		document.querySelectorAll(".option-button").forEach((button) => {
+		for (const button of document.querySelectorAll(".option-button")) {
 			if (button.textContent === currentQuestion.correct) {
 				button.style.backgroundColor = "green";
 				button.style.color = "white";
 			}
-		});
+		}
 	}
 	nextButton.style.display = "block";
 }
+
 function loadNextQuestion() {
 	currentQuestionIndex++;
 	if (currentQuestionIndex < questions.length) {
-		createQuestion(); // Charger la question suivante
+		progressBar.style.width = `${4 + currentQuestionIndex * 10}%`; // progressBar.style.width = (4 + (currentQuestionIndex * 10)) + "%";
+		createQuestion();
 	} else {
-		// Gérer la fin du quiz
-		alert("Quiz finished! Your score: " + score);
+		progressBar.style.width = "100%";
+		const mainSection = document.querySelector(".carte");
+		mainSection.innerHTML = "";
 
-		// mainSection.innerHTML = "";
-		// const scoreFinale = document.createElement("h2");
-		// scoreFinale.textContent = "Quiz finished! Your score: " + score;
+		const scoreFinal = document.createElement("h2");
+		scoreFinal.textContent = `Bravo ${playerName}! Quiz finished! Your score: ${score}`; // scoreFinal.textContent = "Quiz finished! Your score: " + score;
+
+		mainSection.appendChild(scoreFinal);
 	}
 }
