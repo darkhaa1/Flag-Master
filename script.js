@@ -46,6 +46,7 @@ document.getElementById("start-button").addEventListener("click", () => {
 let currentQuestionIndex = 0;
 let score = 0;
 let playerName = "";
+const progressBar = document.getElementById("progress-bar");
 
 document
 	.getElementById("give-up-button")
@@ -80,8 +81,6 @@ function displayGiveUpMessage() {
 	mainSection.appendChild(restartButton);
 }
 
-const progressBar = document.getElementById("progress-bar");
-
 function startQuiz() {
 	playerName = document.getElementById("player-name").value;
 	if (!playerName) {
@@ -95,63 +94,63 @@ function startQuiz() {
 
 const questions = [
 	{
-		question: "Where does this flag fly?",
+		question: "Flag #1 - Where does this flag fly?",
 		picture: "images/om.png",
 		options: ["Oman", "Yemen", "Qatar", "Bahrain"],
 		correct: "Oman",
 	},
 	{
-		question: "Where does this flag fly?",
+		question: "Flag #2 - Where does this flag fly?",
 		picture: "images/pr.png",
 		options: ["Uruguay", "Paraguay", "Bolivia", "Ecuador"],
 		correct: "Paraguay",
 	},
 	{
-		question: "Where does this flag fly?",
+		question: "Flag #3 - Where does this flag fly?",
 		picture: "images/kh.png",
 		options: ["Cambodia", "Thailand", "Vietnam", "Laos"],
 		correct: "Cambodia",
 	},
 	{
-		question: "Where does this flag fly?",
+		question: "Flag #4 - Where does this flag fly?",
 		picture: "images/ge.png",
 		options: ["Armenia", "Georgia", "Azerbaijan", "Ukraine"],
 		correct: "Georgia",
 	},
 	{
-		question: "Where does this flag fly?",
+		question: "Flag #5 - Where does this flag fly?",
 		picture: "images/al.png",
 		options: ["Albania", "Kosovo", "Montenegro", "North Macedonia"],
 		correct: "Albania",
 	},
 	{
-		question: "Where does this flag fly?",
+		question: "Flag #6 - Where does this flag fly?",
 		picture: "images/mn.png",
 		options: ["Barbados", "Jamaica", "Mongolia", "Saint Lucia"],
 		correct: "Mongolia",
 	},
 	{
-		question: "Where does this flag fly?",
+		question: "Flag #7 - Where does this flag fly?",
 		picture: "images/lu.png",
 		options: ["Netherlands", "Luxembourg", "Belgium", "Austria"],
 		correct: "Luxembourg",
 	},
 	{
-		question: "Where does this flag fly?",
+		question: "Flag #8 - Where does this flag fly?",
 		picture: "images/kw.png",
-		options: ["Kuwait", "Qatar", "United Arab Emirates", "Jordan"],
+		options: ["United Arab Emirates", "Qatar", "Kuwait", "Jordan"],
 		correct: "Kuwait",
 	},
 	{
-		question: "Where does this flag fly?",
+		question: "Flag #9 - Where does this flag fly?",
 		picture: "images/is.png",
-		options: ["Iceland", "Norway", "Finland", "Sweden"],
+		options: ["Sweden", "Norway", "Finland", "Iceland"],
 		correct: "Iceland",
 	},
 	{
-		question: "Where does this flag fly?",
+		question: "Flag #10 - Where does this flag fly?",
 		picture: "images/dz.png",
-		options: ["Morocco", "Algeria", "Tunisia", "Egypt"],
+		options: ["Morocco", "Algeria", "Tunisia", "Mauritania"],
 		correct: "Algeria",
 	},
 ];
