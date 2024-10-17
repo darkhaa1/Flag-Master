@@ -225,8 +225,29 @@ function loadNextQuestion() {
 		mainSection.innerHTML = "";
 
 		const scoreFinal = document.createElement("h2");
-		scoreFinal.textContent = `Bravo ${playerName}! Quiz finished! Your score: ${score}`; // scoreFinal.textContent = "Quiz finished! Your score: " + score;
+		scoreFinal.textContent = `Bravo ${playerName}! Quiz finished! Your score is ${score} out of 10`; // scoreFinal.textContent = "Quiz finished! Your score: " + score;
 
 		mainSection.appendChild(scoreFinal);
+		const restartButton = document.createElement("button");
+		restartButton.textContent = "Restart";
+		restartButton.id = "restart-button";
+
+		restartButton.style.paddingLeft = "1em";
+		restartButton.style.paddingRight = "1em";
+		restartButton.style.marginTop = "2vh";
+		restartButton.style.marginBottom = "1vh";
+		restartButton.style.borderRadius = "2vw";
+		restartButton.style.border = "none";
+		restartButton.style.backgroundColor = "#724def";
+		restartButton.style.fontSize = "xx-large";
+		restartButton.style.color = "white";
+		restartButton.style.fontFamily = "Pacifico, cursive";
+
+		restartButton.addEventListener("click", () => {
+			currentQuestionIndex = 0;
+			score = 0;
+			createQuestion();
+		});
+		mainSection.appendChild(restartButton);
 	}
 }
