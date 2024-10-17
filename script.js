@@ -230,7 +230,11 @@ function displayScore() {
 	restartButton.style.color = "white";
 	restartButton.style.fontFamily = "Pacifico, cursive";
 
-	restartButton.addEventListener("click", loadNextQuestion);
+	restartButton.addEventListener("click", () => {
+		currentQuestionIndex = 0;
+		score = 0;
+		createQuestion();
+	});
 	mainSection.appendChild(restartButton);
 }
 
