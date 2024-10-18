@@ -11,6 +11,7 @@ header h1 {
 .carte {
 	margin-left: 1em;
 	margin-right: 1em;
+	padding-top: 4em;
 
 	display: flex;
 	justify-content: unset;
@@ -47,6 +48,23 @@ footer button {
 	margin-top: 2em;
 }
 
-.flagTablet {
+.flag-image {
 	width: 20em;
+	margin-top: 1em;
+	height: 13em;
+	max-height: 15em;
+}
+#next-button {
+	margin-top: 0;
+	font-size: xx-large;
+}
+.option-button {
+	font-size: 2em;
+	padding: 0;
+}
+.avatar {
+	height: 10em;
+}
+.question-class {
+	font-size: 2em;
 }

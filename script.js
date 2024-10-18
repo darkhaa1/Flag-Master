@@ -166,11 +166,11 @@ function createQuestion() {
 	imgFlag.src = currentQuestion.picture;
 	imgFlag.alt = "flag";
 	imgFlag.classList.add("flag-image");
-	imgFlag.style.width = "12em";
 	mainSection.appendChild(imgFlag);
 
 	const question = document.createElement("h3");
 	question.textContent = currentQuestion.question;
+	question.classList.add("question-class");
 	mainSection.appendChild(question);
 
 	const containerOption = document.createElement("div");
@@ -181,8 +181,6 @@ function createQuestion() {
 		const optionButton = document.createElement("button");
 		optionButton.textContent = option;
 		optionButton.classList.add("option-button");
-		optionButton.style.height = "4em";
-		optionButton.style.width = "20em";
 		optionButton.style.borderRadius = "1vw";
 		optionButton.style.border = "none";
 
@@ -199,12 +197,9 @@ function createQuestion() {
 
 	nextButton.style.paddingLeft = "1em";
 	nextButton.style.paddingRight = "1em";
-	nextButton.style.marginTop = "2vh";
-	nextButton.style.marginBottom = "1vh";
 	nextButton.style.borderRadius = "2vw";
 	nextButton.style.border = "none";
 	nextButton.style.backgroundColor = "#724def";
-	nextButton.style.fontSize = "large";
 	nextButton.style.color = "white";
 	nextButton.style.fontFamily = "Pacifico, cursive";
 

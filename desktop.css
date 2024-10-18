@@ -1,0 +1,32 @@
+.flag-image {
+	width: 30em;
+	margin-top: 1em;
+	height: 20em;
+}
+.question-class {
+	font-size: 3em;
+}
+.container-option {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+.option-button {
+	font-size: 2em;
+	padding: 0;
+}
+.carte {
+	height: 50em;
+}
+#next-button {
+	margin-top: 0;
+	font-size: xx-large;
+}
+#hint-giveup img {
+	width: 8em;
+}
+.logo-titre img {
+	width: 15em;
+}
