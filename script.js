@@ -173,6 +173,10 @@ function createQuestion() {
 	question.textContent = currentQuestion.question;
 	mainSection.appendChild(question);
 
+	const containerOption = document.createElement("div");
+	containerOption.classList.add("container-option");
+	mainSection.appendChild(containerOption);
+
 	for (const option of currentQuestion.options) {
 		const optionButton = document.createElement("button");
 		optionButton.textContent = option;
@@ -181,10 +185,11 @@ function createQuestion() {
 		optionButton.style.width = "20em";
 		optionButton.style.borderRadius = "1vw";
 		optionButton.style.border = "none";
+
 		optionButton.addEventListener("click", (event) =>
 			checkAnswer(option, event.target),
 		);
-		mainSection.appendChild(optionButton);
+		containerOption.appendChild(optionButton);
 	}
 
 	const nextButton = document.createElement("button");
@@ -205,11 +210,11 @@ function createQuestion() {
 
 	nextButton.addEventListener("click", loadNextQuestion);
 	mainSection.appendChild(nextButton);
-
-	document.querySelector("#hint-giveup img").addEventListener("click", () => {
-		alert("Ask the person next to you!");
-	});
 }
+
+document.querySelector("#hint-giveup img").addEventListener("click", () => {
+	alert("Ask the person next to you!");
+});
 
 function checkAnswer(selectedOption, buttonElement) {
 	const currentQuestion = questions[currentQuestionIndex];
