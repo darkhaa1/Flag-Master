@@ -17,3 +17,5 @@ Vous trouverez aussi un bouton "I give up", qui vous ramène directement à la p
 ![Texte alternatif](images/home.png)
 
 À la fin du quiz, l'application affiche votre résultat, indiquant combien de questions vous avez bien répondues. Un bouton 'Restart' est également disponible pour recommencer.
+
+![Texte alternatif](images/score.png)
