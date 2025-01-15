@@ -1,6 +1,3 @@
-
-Voici une version corrigée et fluide de ton texte :
-
 Mon premier projet à la Wild Code School
 
 Le but de ce projet était de créer une interface avec des fonctionnalités en JavaScript.
